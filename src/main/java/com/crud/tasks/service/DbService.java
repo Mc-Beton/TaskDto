@@ -18,8 +18,16 @@ public class DbService {
         return repository.findAll();
     }
 
-    public Task getTask(Long taskId) throws TaskNotFoundException {
+    public Task getTask(final Long taskId) throws TaskNotFoundException {
         return repository.findById(taskId).orElseThrow(TaskNotFoundException::new);
+    }
+
+    public Task saveTask(final Task task) {
+        return repository.save(task);
+    }
+
+    public void deleteTask(final Long taskId) {
+        repository.deleteById(taskId);
     }
 
 }
