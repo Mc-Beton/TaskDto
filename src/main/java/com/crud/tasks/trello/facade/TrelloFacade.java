@@ -9,12 +9,11 @@ import com.crud.tasks.trello.domian.TrelloBoardDto;
 import com.crud.tasks.trello.domian.TrelloCardDto;
 import com.crud.tasks.trello.validator.TrelloValidator;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor

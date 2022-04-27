@@ -2,16 +2,16 @@ package com.crud.tasks.trello.validator;
 
 import com.crud.tasks.domain.TrelloBoard;
 import com.crud.tasks.domain.TrelloCard;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @Component
 public class TrelloValidator {
-    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(TrelloValidator.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TrelloValidator.class);
 
     public void validateCard(final TrelloCard trelloCard) {
         if (trelloCard.getName().contains("test")) {
