@@ -33,14 +33,11 @@ class TaskHttpTest {
     @MockBean
     private TaskController taskController;
 
-    @Autowired
-    private TaskMapper mapper;
-
     @Test
     void getAllTasksTest() throws Exception {
         //Given
-        List<Task> tasks = List.of(new Task(1L, "Title", "Content"));
-        when(taskController.getTasks()).thenReturn(ResponseEntity.ok(mapper.mapToTaskDtoList(tasks)));
+        List<TaskDto> tasksDto = List.of(new TaskDto(1L, "Title", "Content"));
+        when(taskController.getTasks()).thenReturn(ResponseEntity.ok(tasksDto));
         //When & Then
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/v1/tasks")
@@ -54,8 +51,9 @@ class TaskHttpTest {
     @Test
     void getTaskWithSpecifiedIdTest() throws Exception {
         //Given
-        Task task = new Task(1L, "Title", "Content");
-        when(taskController.getTask(1L)).thenReturn(ResponseEntity.ok(mapper.mapToTaskDto(task)));
+        TaskDto taskDto = new TaskDto(1L, "Title", "Content");
+
+        when(taskController.getTask(1L)).thenReturn(ResponseEntity.ok(taskDto));
         //When & Then
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/v1/tasks/1")
