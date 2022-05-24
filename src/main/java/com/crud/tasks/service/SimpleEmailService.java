@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import static java.util.Optional.ofNullable;
-
 @Slf4j
 @Service
 @RequiredArgsConstructor
